@@ -38,6 +38,23 @@ const products = [
   { name: 'Shoes', price: 60, category: 'Clothing' },
 ];
 
+const ProductCategory = (products) =>{
+  // initialize an empty object
+  const result = {}
+  // Loop throu each product exracting the name,price, category
+  for(let i = 0; i < products.length; i++){
+      const { name, price, category} = products[i]
+      // if the 'category' does not exist as a key in the 'result' object, we initiallize it as an empty array
+      if(!result[category]){
+          result[category] = []
+      }
+      // The function then pushes an object containing the name and price properties to the appropriate category array
+      result[category].push({name, price,category})
+  }
+  return result
+}
+const product = ProductCategory(products)
+console.log(product);
 //Given an array of objects, where each object represents a student 
 //with a name and an array of scores, write a function that returns a 
 //new array containing the names of all students whose average score is 
